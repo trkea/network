@@ -1,4 +1,4 @@
-function makeMap() {
+function makeNetwork() {
   var canvas = document.getElementById("map");
   canvas.style.opacity = 0.5;
   var ctx = canvas.getContext("2d");
