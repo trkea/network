@@ -4,7 +4,7 @@ class Network {
     this.canvas = canvas;
   }
 
-  makeRandomPoints(ctx,total) {
+  makeRandomPoints(ctx,total,display) {
   let points = new Array();
   const splitX = this.canvas.width / total;
   const splitY = this.canvas.height / total;
@@ -23,21 +23,25 @@ class Network {
     }else if(y <= 10) {
       y += 10;
     }
-      ctx.arc(x ,y ,10 ,0 ,Math.PI * 2 ,false);
-      const point = [x,y];
+      const point = {x: x,y: y};
       points.push(point);
+      if(display == true) {
+      ctx.arc(point.x ,point.y ,10 ,0 ,Math.PI * 2 ,false);
       ctx.fill();
+      }
     }
   return points;
   }
 
-    makeStartPoints(ctx) {
-      return [[this.canvas.width / 2 , 0],
-              [this.canvas.width / 7 , this.canvas.height],
-              [this.canvas.width , this.canvas.height / 20 * 7],
-              [0, this.canvas.height / 20 * 7],
-              [this.canvas.width / 7 * 6, this.canvas.height],
-              [this.canvas.width / 2 , 0]];
+    makeStartPoints() {
+      return [
+      {x: this.canvas.width / 2    ,y: 0},
+      {x: this.canvas.width / 7    , y: this.canvas.height},
+      {x: this.canvas.width        , y:this.canvas.height / 20 * 7},
+      {x: 0                        , y: this.canvas.height / 20 * 7},
+      {x: this.canvas.width / 7 * 6, y: this.canvas.height},
+      {x: this.canvas.width / 2    , y: 0}
+      ];
     }
 
    makeLine(ctx,bPoint,ePoint) {

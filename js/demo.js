@@ -1,19 +1,12 @@
 function makeNetwork() {
   const canvas = document.getElementById("map");
   const ctx = canvas.getContext('2d');
+  canvas.style.opacity = 0.5;
   setCanvas(canvas);
   const network = new Network(canvas);
-  const points = network.makeRandomPoints(ctx,10);
+  const points = network.makeRandomPoints(ctx,10,true);
   for(var i = 1; i < points.length + 1;i++) {
-      var bPoint = { 
-        x: points[i -1][0],
-        y: points[i - 1][1]
-      };
-    var ePoint = {
-      x: points[i][0],
-      y: points[i][1]
-    };
-    network.makeLine(ctx,bPoint,ePoint);
+    network.makeLine(ctx,points[i - 1],points[i]);
   }
 }
 
@@ -22,17 +15,9 @@ function makeStar() {
   const ctx = canvas.getContext('2d');
   setCanvas(canvas);
   const network = new Network(canvas);
-  const points = network.makeStartPoints(ctx);
+  const points = network.makeStartPoints();
   for(var i = 1; i < points.length + 1;i++) {
-      var bPoint = { 
-        x: points[i -1][0],
-        y: points[i - 1][1]
-      };
-    var ePoint = {
-      x: points[i][0],
-      y: points[i][1]
-    };
-    network.makeLine(ctx,bPoint,ePoint);
+    network.makeLine(ctx,points[i-1],points[i]);
   }
 }
 
