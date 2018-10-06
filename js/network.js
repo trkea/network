@@ -33,23 +33,15 @@ class Network {
 
    makeLine(ctx,bPoint,ePoint) {
       var drawSlantLineAnim = function() {
-      var beginPos = {
-        x: bPoint[0],
-        y: bPoint[1]
-      },
-      movePos = { 
-        x: beginPos.x,
-        y: beginPos.y
-      },
-      endPos = { 
-        x: ePoint[0],
-        y: ePoint[1]
+      var movePoint = { 
+        x: bPoint.x,
+        y: bPoint.y
       },
       moveLength = 0,
       addLength = 10, 
       side = {
-        x: endPos.x - beginPos.x,
-        y: endPos.y - beginPos.y
+        x: ePoint.x - bPoint.x,
+        y: ePoint.y - bPoint.y
       },
       hypotenuse = Math.sqrt(Math.pow(side.x, 2) + Math.pow(side.y, 2)),
       radian = Math.atan2(side.y, side.x),
@@ -58,17 +50,17 @@ class Network {
       };
     var render = function() {
       ctx.beginPath();
-      ctx.moveTo(beginPos.x, beginPos.y);
-      ctx.lineTo(movePos.x, movePos.y);
+      ctx.moveTo(bPoint.x, bPoint.y);
+      ctx.lineTo(movePoint.x, movePoint.y);
       ctx.closePath();
       ctx.stroke();
 
     if (isAnim() === true) {
       moveLength += addLength;
-      movePos.x += Math.cos(radian) * addLength;
-      movePos.y += Math.sin(radian) * addLength;
-      movePos.x = (isAnim() === false) ? endPos.x : movePos.x;
-      movePos.y = (isAnim() === false) ? endPos.y : movePos.y;
+      movePoint.x += Math.cos(radian) * addLength;
+      movePoint.y += Math.sin(radian) * addLength;
+      movePoint.x = (isAnim() === false) ? ePoint.x : movePoint.x;
+      movePoint.y = (isAnim() === false) ? ePoint.y : movePoint.y;
       requestAnimationFrame(render);
     }
 };

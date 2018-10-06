@@ -5,8 +5,14 @@ function makeNetwork() {
   const network = new Network(canvas);
   const points = network.makeRandomCircle(ctx,10);
   for(var i = 1; i < points.length + 1;i++) {
-    var bPoint = [points[i -1][0],points[i - 1][1]];
-    var ePoint = [points[i][0],points[i][1]];
+      var bPoint = { 
+        x: points[i -1][0],
+        y: points[i - 1][1]
+      };
+    var ePoint = {
+      x: points[i][0],
+      y: points[i][1]
+    };
     network.makeLine(ctx,bPoint,ePoint);
   }
 }
