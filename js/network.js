@@ -4,7 +4,7 @@ class Network {
     this.canvas = canvas;
   }
 
-  makeRandomCircle(ctx,total) {
+  makeRandomPoints(ctx,total) {
   let points = new Array();
   const splitX = this.canvas.width / total;
   const splitY = this.canvas.height / total;
@@ -30,6 +30,15 @@ class Network {
     }
   return points;
   }
+
+    makeStartPoints(ctx) {
+      return [[this.canvas.width / 2 , 0],
+              [this.canvas.width / 7 , this.canvas.height],
+              [this.canvas.width , this.canvas.height / 20 * 7],
+              [0, this.canvas.height / 20 * 7],
+              [this.canvas.width / 7 * 6, this.canvas.height],
+              [this.canvas.width / 2 , 0]];
+    }
 
    makeLine(ctx,bPoint,ePoint) {
       var drawSlantLineAnim = function() {
