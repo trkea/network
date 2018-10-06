@@ -1,48 +1,39 @@
-function makeNetwork() {
-  var canvas = document.getElementById("map");
-  canvas.style.opacity = 0.5;
-  var ctx = canvas.getContext("2d");
-  var total = 5;
-  canvas.width = 500;
-  canvas.height = 500;
-  let points = makeRandomCircle(ctx,10,canvas);
-  for(var i = 1; i < points.length + 1;i++) {
-  let bPoint = [points[i -1][0],points[i - 1][1]];
-  let ePoint = [points[i][0],points[i][1]];
-  makeLine(ctx,bPoint,ePoint);
-  }
-}
+class Network {
 
-function makeRandomCircle(ctx,total,canvas) {
-  var points = new Array();
-  let splitX = canvas.width / total;
-  let splitY = canvas.height / total;
+  constructor(canvas) {
+    this.canvas = canvas;
+  }
+
+  makeRandomCircle(ctx,total) {
+  let points = new Array();
+  const splitX = this.canvas.width / total;
+  const splitY = this.canvas.height / total;
   for(var i = 0;i < total;i++) {
     ctx.beginPath();
-    canvas.style.opacity += 1/ total;
-    var x = canvas.width  * Math.random();
-    var y = canvas.height / total * (i + 1);
-    if(x >= canvas.width - 10) {
+    this.canvas.style.opacity += 1/ total;
+    var x = this.canvas.width  * Math.random();
+    var y = this.canvas.height / total * (i + 1);
+    if(x >= this.canvas.width - 10) {
       x -= 10;
     }else if(x <= 10) {
       x += 10;
     }
-    if(y >= canvas.height - 10) {
+    if(y >= this.canvas.height - 10) {
       y -= 10;
     }else if(y <= 10) {
       y += 10;
     }
-    ctx.arc(x ,y ,10 ,0 ,Math.PI * 2 ,false);
-    let point = [x,y];
-    points.push(point);
-    ctx.fill();
+      ctx.arc(x ,y ,10 ,0 ,Math.PI * 2 ,false);
+      const point = [x,y];
+      points.push(point);
+      ctx.fill();
+    }
+  return points;
   }
-    return points;
-}
 
-function makeLine(ctx,bPoint,ePoint) {
-var drawSlantLineAnim = function() {
-  var beginPos = {
+   makeLine(ctx,bPoint,ePoint) {
+      var drawSlantLineAnim = function() {
+      var beginPos = {
         x: bPoint[0],
         y: bPoint[1]
       },
@@ -56,7 +47,7 @@ var drawSlantLineAnim = function() {
       },
       moveLength = 0,
       addLength = 10, 
-      side = { 
+      side = {
         x: endPos.x - beginPos.x,
         y: endPos.y - beginPos.y
       },
@@ -65,13 +56,12 @@ var drawSlantLineAnim = function() {
       isAnim = function() {
         return moveLength < hypotenuse;
       };
-
-  var render = function() {
-    ctx.beginPath();
-    ctx.moveTo(beginPos.x, beginPos.y);
-    ctx.lineTo(movePos.x, movePos.y);
-    ctx.closePath();
-    ctx.stroke();
+    var render = function() {
+      ctx.beginPath();
+      ctx.moveTo(beginPos.x, beginPos.y);
+      ctx.lineTo(movePos.x, movePos.y);
+      ctx.closePath();
+      ctx.stroke();
 
     if (isAnim() === true) {
       moveLength += addLength;
@@ -81,8 +71,9 @@ var drawSlantLineAnim = function() {
       movePos.y = (isAnim() === false) ? endPos.y : movePos.y;
       requestAnimationFrame(render);
     }
-  };
+};
   render();
 };
 drawSlantLineAnim();
+}
 }
