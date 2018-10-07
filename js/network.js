@@ -4,12 +4,11 @@ class Network {
     this.canvas = canvas;
   }
 
-  makeRandomPoints(ctx,total) {
+  makeRandomPoints(total) {
     let points = new Array();
     const splitX = this.canvas.width / total;
     const splitY = this.canvas.height / total;
     for(var i = 0;i < total;i++) {
-      ctx.beginPath();
       this.canvas.style.opacity += 1/ total;
       let x = this.canvas.width  * Math.random();
       let y = this.canvas.height / total * (i + 1);
