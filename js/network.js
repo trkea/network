@@ -4,15 +4,15 @@ class Network {
     this.canvas = canvas;
   }
 
-  makeRandomPoints(ctx,total,display) {
+  makeRandomPoints(ctx,total) {
   let points = new Array();
   const splitX = this.canvas.width / total;
   const splitY = this.canvas.height / total;
   for(var i = 0;i < total;i++) {
     ctx.beginPath();
     this.canvas.style.opacity += 1/ total;
-    var x = this.canvas.width  * Math.random();
-    var y = this.canvas.height / total * (i + 1);
+    let x = this.canvas.width  * Math.random();
+    let y = this.canvas.height / total * (i + 1);
     if(x >= this.canvas.width - 10) {
       x -= 10;
     }else if(x <= 10) {
@@ -25,10 +25,6 @@ class Network {
     }
       const point = {x: x,y: y};
       points.push(point);
-      if(display == true) {
-      ctx.arc(point.x ,point.y ,10 ,0 ,Math.PI * 2 ,false);
-      ctx.fill();
-      }
     }
   return points;
   }
@@ -45,8 +41,8 @@ class Network {
     }
 
    makeLine(ctx,bPoint,ePoint) {
-      var drawSlantLineAnim = function() {
-      var movePoint = { 
+      let drawSlantLineAnim = function() {
+      let movePoint = { 
         x: bPoint.x,
         y: bPoint.y
       },
@@ -61,7 +57,7 @@ class Network {
       isAnim = function() {
         return moveLength < hypotenuse;
       };
-    var render = function() {
+    let render = function() {
       ctx.beginPath();
       ctx.moveTo(bPoint.x, bPoint.y);
       ctx.lineTo(movePoint.x, movePoint.y);
