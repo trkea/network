@@ -6,10 +6,10 @@ function makeNetwork() {
   const network = new Network(canvas);
   const points = network.makeRandomPoints(10);
   for(let i = 1; i < points.length + 1;i++) {
-  ctx.beginPath();
-  ctx.arc(points[i-1].x ,points[i-1].y ,10 ,0 ,Math.PI * 2 ,false);
-  ctx.fill();
-  network.makeLine(ctx,points[i - 1],points[i]);
+    ctx.beginPath();
+    ctx.arc(points[i-1].x ,points[i-1].y ,10 ,0 ,Math.PI * 2 ,false);
+    ctx.fill();
+    network.makeLine(ctx,points[i - 1],points[i]);
   }
 }
 
