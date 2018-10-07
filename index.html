@@ -7,12 +7,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/network.js"></script>
     <script type="text/javascript" src="js/demo.js"></script>
+    <style type="text/css">
+      body {
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
   </head>
-  <body onload="makeStar()">
-    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result↓</h1>
+  <body onload="makeNetwork()">
     <canvas id="map"></canvas>
     <br>
-    <button onclick="makeNetwork()">Push！</button>
-    <button onclick="makeStar()">Star！</button>
+    <button onclick="makeNetwork()">Network</button>
+    <button onclick="makeStar()">Star</button>
    </body>
 </html>

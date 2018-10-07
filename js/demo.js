@@ -26,6 +26,6 @@ function makeStar() {
 
 function setCanvas(canvas) {
   canvas.style.opacity = 0.5;
-  canvas.width = 300;
-  canvas.height = 300;
+  canvas.width = 400;
+  canvas.height = 400;
 }
