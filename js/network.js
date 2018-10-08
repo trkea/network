@@ -39,6 +39,41 @@ class Network {
       ];
     }
 
+    makeRupeePoints() {
+    	return [
+    	{x: this.canvas.width / 2,     y: 0},
+    	{x: this.canvas.width / 4,     y: this.canvas.height / 4},
+    	{x: this.canvas.width / 4,     y: this.canvas.height * 3 / 4},
+    	{x: this.canvas.width / 2,     y: this.canvas.height},
+    	{x: this.canvas.width * 3 / 4, y: this.canvas.height * 3 / 4},
+    	{x: this.canvas.width * 3 / 4, y: this.canvas.height / 4},
+    	{x: this.canvas.width / 2,     y: 0},
+      {x: this.canvas.width / 2,       y: this.canvas.height / 6}, //ここからinner
+
+      {x: this.canvas.width * 9 / 24,  y: this.canvas.height * 7 / 24},
+      {x: this.canvas.width / 4,     y: this.canvas.height / 4},
+      {x: this.canvas.width * 9 / 24,  y: this.canvas.height * 7 / 24},
+
+      {x: this.canvas.width * 9 / 24,  y: this.canvas.height * 17 / 24},
+      {x: this.canvas.width / 4,     y: this.canvas.height * 3 / 4},
+      {x: this.canvas.width * 9 / 24,  y: this.canvas.height * 17 / 24},
+
+      {x: this.canvas.width / 2,       y: this.canvas.height * 5 / 6},
+      {x: this.canvas.width / 2,     y: this.canvas.height},
+      {x: this.canvas.width / 2,       y: this.canvas.height * 5 / 6},
+
+      {x: this.canvas.width * 15 / 24, y: this.canvas.height * 17 / 24},
+      {x: this.canvas.width * 3 / 4, y: this.canvas.height * 3 / 4},
+      {x: this.canvas.width * 15 / 24, y: this.canvas.height * 17 / 24},
+
+      {x: this.canvas.width * 15 / 24, y: this.canvas.height * 7 / 24},
+      {x: this.canvas.width * 3 / 4, y: this.canvas.height / 4},
+      {x: this.canvas.width * 15 / 24, y: this.canvas.height * 7 / 24},
+
+      {x: this.canvas.width / 2,       y: this.canvas.height / 6}
+    	];
+    }
+
    makeLine(ctx,bPoint,ePoint) {
     let drawSlantLineAnim = function() {
     let movePoint = { 
