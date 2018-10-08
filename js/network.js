@@ -80,16 +80,16 @@ class Network {
       {x: this.canvas.width * 3 / 4, y: 0},
       
       {x: this.canvas.width / 2,     y: this.canvas.height / 4},
-      {x: this.canvas.width / 2,     y: this.canvas.height * 3 / 4},
+      {x: this.canvas.width / 2,     y: this.canvas.height},
       {x: this.canvas.width / 2,     y: this.canvas.height / 4},
 
       {x: 0,                         y: this.canvas.height / 4},
       {x: this.canvas.width / 4,     y: 0},
       {x: 0,                         y: this.canvas.height / 4},
 
-      {x: 0,                         y: this.canvas.height * 3 / 4},
-      {x: this.canvas.width * 2 / 4, y: this.canvas.height * 3 / 4},
-      {x: this.canvas.width * 3 / 4, y: this.canvas.height * 2 / 4},
+      {x: 0,                         y: this.canvas.height},
+      {x: this.canvas.width * 2 / 4, y: this.canvas.height},
+      {x: this.canvas.width * 3 / 4, y: this.canvas.height * 3 / 4},
       {x: this.canvas.width * 3 / 4, y: 0}
       ];
     }
