@@ -16,6 +16,7 @@ function makeNetwork() {
 function makeStar() {
   const canvas = document.getElementById("map");
   const ctx = canvas.getContext('2d');
+  ctx.rect(25, 25, 100, 100);
   setCanvas(canvas);
   const network = new Network(canvas);
   const points = network.makeStartPoints();
